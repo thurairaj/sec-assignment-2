@@ -6,10 +6,25 @@ import Display from "@/component/Display/Display";
 
 const Container = () => {
     const [currentTemperature, setCurrentTemperature] = useState("Waiting...");
+    const [hourlyTemperature, setHourlyTemperature] = useState([]);
+
     return (
         <div>
-            <UserInput changeTemperature={setCurrentTemperature}></UserInput>
-            <Display temperature={currentTemperature}></Display>
+            <div>
+
+            </div>
+            <div className={"spa-container"}>
+                <UserInput current={setCurrentTemperature} hourly={setHourlyTemperature}></UserInput>
+                <Display current={currentTemperature} hourly={hourlyTemperature}></Display>
+            </div>
+            <style jsx>{`
+                .spa-container {
+                    display: flex;
+                    flex-direction: column;
+
+                    padding: 30px;
+                }
+            `}</style>
         </div>
     );
 };
